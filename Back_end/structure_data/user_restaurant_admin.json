@@ -1,0 +1,33 @@
+{
+	"userRestaurantAdmin": {
+		"idRestaurant": "",
+		"naneRestaurant":"",
+		"addressOfRestaurant": "",
+		"password": "",
+		"listOrders":[
+			{
+				"orderBill": {
+					"idOrderBill": "",
+					"numberOfOrDer": "",
+					"timeOfOrder": "",
+					"status": "",
+					"listOrder": [
+						{
+							"idFood": "",
+							"nameFood": "",
+							"priceOfFood": ""
+						}
+					]
+				}
+			}
+		],
+		"listFood":[
+			{
+				"idFood": "",
+				"nameFood": "",
+				"priceOfFood": "",
+				"imageOfFood": ""
+			}
+		]
+	}
+}

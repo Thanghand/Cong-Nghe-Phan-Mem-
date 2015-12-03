@@ -1,3 +1,26 @@
 {
-	""
+	"user_mobile":{
+		"idUserMobile": "",
+		"fullName": "",
+		"firstName": "",
+		"lastName": "",
+		"password": "",
+		"favoriteRestaurant":[
+			{
+				"idRestaurant": "",
+				"naneRestaurant":"",
+				"addressOfRestaurant": ""
+			}
+		],
+		"favoriteFood":[
+			{
+				"idFood": "",
+				"idRestaurant": "",
+				"nameFood": "",
+				"numberOfLikes": "",
+				"imageOfFood": ""
+			}
+		]
+
+	}
 }
