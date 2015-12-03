@@ -1,5 +1,4 @@
 var users = {
- 
   getAll: function(req, res) {
     var allusers = data; // Spoof a DB call
     res.json(allusers);
@@ -28,9 +27,22 @@ var users = {
     var id = req.params.id;
     data.splice(id, 1) // Spoof a DB call
     res.json(true);
+  },
+  insert: function (req, res){
+  
+    var doc1 = {
+      'Name': 'My Name is THang Hoang Cao Dep Trai Nhat Tu Truoc Toi Nay 1223333334555443432'
+    };
+    mCollection.insert(doc1);
+    res.json("Insert Success");
+  },
+  setDb: function(collection) {
+   // db = database ; 
+   mCollection = collection; 
   }
 };
- 
+var db ;
+var mCollection;
 var data = [{
   name: 'user 1',
   id: '1'
