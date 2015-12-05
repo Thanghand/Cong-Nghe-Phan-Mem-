@@ -1,9 +1,9 @@
 # -------Cong Nghe Phan Mem
-
-# Mobile Front End
-
-# Back End
-
-# Database
-
-# Restaurant admin
+	+ Name project: FUTI
+	+ Structure of project:
+		- Admin_Control_Service:
+		- Back_end:
+		- Database:
+		- Mobile_User_Order:
+		- Restaurant_admin:
+		- ServerImage:
