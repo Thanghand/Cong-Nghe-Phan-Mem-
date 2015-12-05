@@ -1,1 +1,0 @@
-# WebContent image server.

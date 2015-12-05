@@ -1,9 +1,19 @@
 {
-	"userRestaurantAdmin": {
+	"restaurant": {
 		"idRestaurant": "",
 		"naneRestaurant":"",
 		"addressOfRestaurant": "",
-		"password": "",
+		"timeToOpen": "",
+		"imageRestaurant": "",
+		"passwordOfRestaurant": "",
+		"listUserPermission": [
+			{
+				"idUserOfRestaurant": "",
+				"fullName": "",
+				"lastName": "",
+				"passwordOfPersonal": ""
+			}
+		]
 		"listOrders":[
 			{
 				"orderBill": {
