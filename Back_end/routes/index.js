@@ -6,7 +6,7 @@ var multer  = require('multer');
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
-var upload = multer({ dest: '/uploads/' });
+var upload = multer({ dest: '/src/images/' });
 
 var router = express.Router();
 var auth = require('./auth.js');
@@ -16,13 +16,13 @@ var restaurants = require('./src/restaurant.js');
 var upload = multer({ dest: '/src/images' });
 
 // Database MongoDB 
-var MongoClient = require('mongodb').MongoClient;
-var database ;
-MongoClient.connect("mongodb://localhost:27017/demo", function(err, db) {
-	database = db ;
-	userCollection = db.collection('Thangcollection');
-	user.setDb(userCollection);
-});
+// var MongoClient = require('mongodb').MongoClient;
+// var database ;
+// MongoClient.connect("mongodb://localhost:27017/demo", function(err, db) {
+// 	database = db ;
+// 	userCollection = db.collection('Thangcollection');
+// 	user.setDb(userCollection);
+// });
 
 /*
  * Routes that can be accessed by any one

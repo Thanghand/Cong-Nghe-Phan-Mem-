@@ -13,8 +13,8 @@
 				"lastName": "",
 				"passwordOfPersonal": ""
 			}
-		]
-		"listOrders":[
+		],
+		"listOrders": [
 			{
 				"orderBill": {
 					"idOrderBill": "",
