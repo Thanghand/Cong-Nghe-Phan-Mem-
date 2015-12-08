@@ -1,6 +1,9 @@
 {
     "_id": "",
     "idRestaurant": "",
+    "idUser": "",
+    "nameUser": "",
+    "phoneNumber": "",
     "total": "",
     "timeOrder": "",
     "status": "",
