@@ -33,6 +33,8 @@ var adminControllService = {
                     "lastName": params.lastName,
                     "password": params.password,
                     "typeUser": params.typeUser,
+                    "phoneNumber": params.phoneNumber,
+                    "address": params.address,
                     "foodCollections": [{
                         "nameFoodCollection": "",
                         "descriptionCollection": "",
