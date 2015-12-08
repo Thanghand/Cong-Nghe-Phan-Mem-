@@ -1,27 +1,20 @@
 {
-  "user_mobile":{
-    "idUserMobile": "",
+    "_id": "",
+    "email": "",
     "fullName": "",
     "firstName": "",
     "lastName": "",
     "password": "",
     "typeUser": "",
-    "favoriteRestaurant":[
-      {
-        "idRestaurant": "",
-        "naneRestaurant":"",
-        "addressOfRestaurant": ""-
-      }
-    ],
-    "favoriteFood":[
-      {
-        "idFood": "",
-        "idRestaurant": "",
-        "nameFood": "",
-        "numberOfLikes": "",
-        "imageOfFood": ""
-      }
-    ]
-
-  }
+    "foodCollections": [{
+        "nameFoodCollection": "",
+        "descriptionCollection": "",
+        "listFoods": [{
+            "idFood": "",
+            "nameFood": "",
+            "priceOfFood": "",
+            "imageOfFood": "",
+            "rating": ""
+        }]
+    }]
 }

@@ -13,8 +13,8 @@ var auth = require('./auth.js');
 var products = require('./products.js');
 var user = require('./users.js');
 var restaurants = require('./src/restaurant.js');
+var adminControl = require('./src/admin_control.js');
 var upload = multer({ dest: '/src/images' });
-
 // Database MongoDB 
 var MongoClient = require('mongodb').MongoClient;
 var database ;
@@ -44,6 +44,9 @@ router.delete('/api/v1/admin/user/:id', user.delete);
  */
 console.log(restaurants);
 router.post('/api/v1/restaurants/insertfood',upload.single('file') ,restaurants.insertFood);
-
+/*
+ * Admin Controll Service 
+ */ 
+router.post('/api/admin/login', adminControl.login);
 // Export Mobulde Router
 module.exports = router;

@@ -1,43 +1,34 @@
 {
-	"restaurant": {
-		"idRestaurant": "",
-		"naneRestaurant":"",
-		"addressOfRestaurant": "",
-		"timeToOpen": "",
-		"imageRestaurant": "",
-		"passwordOfRestaurant": "",
-		"listUserPermission": [
-			{
-				"idUserOfRestaurant": "",
-				"fullName": "",
-				"lastName": "",
-				"passwordOfPersonal": ""
-			}
-		]
-		"listOrders":[
-			{
-				"orderBill": {
-					"idOrderBill": "",
-					"numberOfOrDer": "",
-					"timeOfOrder": "",
-					"status": "",
-					"listOrder": [
-						{
-							"idFood": "",
-							"nameFood": "",
-							"priceOfFood": ""
-						}
-					]
-				}
-			}
-		],
-		"listFood":[
-			{
-				"idFood": "",
-				"nameFood": "",
-				"priceOfFood": "",
-				"imageOfFood": ""
-			}
-		]
-	}
+    "_id": "",
+    "nameRestaurant": "",
+    "addressOfRestaurant": "",
+    "timeToOpen": "",
+    "timeToClose": "",
+    "imageRestaurant": "",
+    "userAdmin": "",
+    "password": "",
+    "listConfirmOrders": [{
+        "idOrderBill": "",
+        "numberOfBills": "",
+        "timeOrder": "",
+        "status": "",
+        "listBills": [{
+            "idFood": "",
+            "nameFood": "",
+            "priceOfFood": ""
+        }]
+    }],
+    "listFoods": [{
+        "idFood": "",
+        "nameFood": "",
+        "priceOfFood": "",
+        "imageOfFood": "",
+        "rating": "",
+        "listRating": [{
+            "idUser": "",
+            "rating": "",
+            "predictedRating": ""
+        }]
+    }]
+
 }

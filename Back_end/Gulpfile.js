@@ -8,7 +8,7 @@ var options = {
  
 var serverFiles = [
     'server.js',
-    './routes/*.js'
+    './routes/**/*.js'
 ];
  
 gulp.task( 'server:start', function() {
