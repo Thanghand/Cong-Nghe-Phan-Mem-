@@ -1,0 +1,12 @@
+{
+    "_id": "",
+    "idRestaurant": "",
+    "numberOfBills": "",
+    "timeOrder": "",
+    "status": "",
+    "listBills": [{
+        "idFood": "",
+        "nameFood": "",
+        "priceOfFood": ""
+    }]
+}

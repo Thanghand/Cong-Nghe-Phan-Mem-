@@ -1,3 +1,4 @@
+//  Library module 
 var _ = require('underscore-node');
 var fs = require('fs');
 
@@ -15,6 +16,7 @@ var restaurants = {
     },
     insertFood: function(req, res) {
         console.log(req.file);
+        // File 
         var imageName = req.file.originalname;
         fs.readFile(req.file.path, function(err, data) {
             /// If there's an error
@@ -43,10 +45,6 @@ var restaurants = {
                 });
             }
         });
-        // res.writeHead(200, {
-        //     'Content-Type': 'text/plain'
-        // });
-        // res.end("Success");
     },
     getFoodByID: function(req, res) {
 

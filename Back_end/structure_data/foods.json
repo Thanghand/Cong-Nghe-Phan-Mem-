@@ -1,0 +1,13 @@
+{
+    "_id": "",
+    "idRestaurant": ""
+    "nameFood": "",
+    "priceFood": "",
+    "urlImageFood": "",
+    "rating": "",
+    "listRating": [{
+        "idUser": "",
+        "rating": "",
+        "predictedRating": ""
+    }]
+}
