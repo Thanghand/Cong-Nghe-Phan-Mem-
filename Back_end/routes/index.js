@@ -33,20 +33,22 @@ router.post('/login', auth.login);
 /*
  * Users
  */
-
 router.get('/api/v1/admin/users', user.getAll);
 router.get('/api/v1/admin/users/insert', user.insert);
 router.get('/api/v1/admin/user/:id', user.getOne);
 router.post('/api/v1/admin/user/', user.create);
 router.put('/api/v1/admin/user/:id', user.update);
 router.delete('/api/v1/admin/user/:id', user.delete);
+
 /*
  * Restaurants
  */
+
 router.post('/api/v1/restaurants/insertfood',upload.single('file') ,restaurants.insertFood);
 /*
  * Admin Controll Service 
  */ 
 router.post('/api/admin/login', adminControl.login);
+
 // Export Mobulde Router
 module.exports = router;

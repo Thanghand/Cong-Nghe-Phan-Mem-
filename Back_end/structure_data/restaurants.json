@@ -2,6 +2,8 @@
     "_id": "",
     "nameRestaurant": "",
     "addressOfRestaurant": "",
+    "city": "",
+    "district": "",
     "timeToOpen": "",
     "timeToClose": "",
     "imageRestaurant": "",
@@ -9,7 +11,7 @@
     "password": "",
     "listConfirmOrders": [{
         "idOrderBill": "",
-        "numberOfBills": "",
+        "total": "",
         "timeOrder": "",
         "status": "",
         "listBills": [{
@@ -17,18 +19,5 @@
             "nameFood": "",
             "priceOfFood": ""
         }]
-    }],
-    "listFoods": [{
-        "idFood": "",
-        "nameFood": "",
-        "priceOfFood": "",
-        "imageOfFood": "",
-        "rating": "",
-        "listRating": [{
-            "idUser": "",
-            "rating": "",
-            "predictedRating": ""
-        }]
     }]
-
 }
