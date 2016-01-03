@@ -11,7 +11,6 @@ public class UserSmartChef {
 	private String lastName;
 	private String password;
 	private int priID; // Permission User
-	private boolean active; // Confirm Email
 	private ArrayList<String> favoriteMeal = new ArrayList<String>();
 
 	public String getProfilePicture() {
@@ -45,15 +44,7 @@ public class UserSmartChef {
 	public void setPriID(int priID) {
 		this.priID = priID;
 	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-
+	
 	public ArrayList<String> getFavoriteMeal() {
 		return favoriteMeal;
 	}
