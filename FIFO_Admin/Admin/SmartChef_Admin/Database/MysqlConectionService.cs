@@ -11,7 +11,7 @@ namespace SmartChef_Admin.Database
 {
     class MysqlConectionService
     {
-        private string connectionString = "Server=localhost;Database=fifo;Uid=root;Pwd=1234;";
+        private string connectionString = "Server=192.168.1.20;Port=3306;Database=fifo;Uid=root;Pwd=1234;";
 
         private MySqlConnection mySqlConnection; 
 
@@ -45,7 +45,17 @@ namespace SmartChef_Admin.Database
             adapter.Fill(dataSet);
             return dataSet;
         }
-
+        public DataSet login (String email, String password){
+            DataSet dataSet = new DataSet();
+            MySqlCommand cmd = mySqlConnection.CreateCommand();
+            cmd.CommandText = "select privilegeID from user where email = @email and password = @password;";
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@password", password);
+            cmd.ExecuteNonQuery();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(dataSet);
+            return dataSet;
+        }
         public void InsertMeal(Meal meal)
         {
             try

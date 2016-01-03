@@ -55,3 +55,18 @@ E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmi
 E:\Cong Nghe Phan Mem\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
 E:\Cong Nghe Phan Mem\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
 E:\Cong Nghe Phan Mem\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.pdb
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\MySql.Data.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\MySql.Data.Entity.EF5.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\MySql.Fabric.Plugin.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\MySql.Web.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csprojResolveAssemblyReference.cache
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.SmartChef.resources
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Properties.Resources.resources
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csproj.GenerateResource.Cache
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Login.resources

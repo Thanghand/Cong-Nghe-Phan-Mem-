@@ -16,7 +16,7 @@ namespace SmartChef_Admin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SmartChef());
+            Application.Run(new Login());
         }
     }
 }

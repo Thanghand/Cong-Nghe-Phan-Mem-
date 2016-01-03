@@ -1,0 +1,14 @@
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Release\SmartChef_Admin.exe.config
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Release\SmartChef_Admin.exe
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Release\SmartChef_Admin.pdb
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Release\MySql.Data.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Release\MySql.Data.Entity.EF5.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Release\MySql.Data.Entity.EF6.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Release\MySql.Fabric.Plugin.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Release\MySql.Web.dll
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Release\SmartChef_Admin.Login.resources
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Release\SmartChef_Admin.SmartChef.resources
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Release\SmartChef_Admin.Properties.Resources.resources
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Release\SmartChef_Admin.csproj.GenerateResource.Cache
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Release\SmartChef_Admin.exe
+D:\CNPM\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Release\SmartChef_Admin.pdb
