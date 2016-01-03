@@ -10,3 +10,4 @@ var configDatabase = {
 	"database": DATABASE
 };
 module.exports = configDatabase;
+

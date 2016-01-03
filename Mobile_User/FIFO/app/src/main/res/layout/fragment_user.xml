@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#333333">
+
+    <ImageView
+        android:id="@+id/backgroundUserProfile"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8C000000" />
+
+    <RelativeLayout
+        android:id="@+id/headerView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <RelativeLayout
+            android:id="@+id/headerUserView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imageUserProfile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/chef"
+                app:border_color="@android:color/white"
+                app:border_width="1dp" />
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/textViewUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/headerUserView"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/User"
+            android:textColor="@android:color/white"
+            android:textSize="15dip"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/textViewUser"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_transperent_borderwhite2"
+            android:text="@string/Logout"
+            android:textColor="@android:color/white"
+            android:textSize="13dip"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/layoutFollower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null">
+
+                <TextView
+                    android:id="@+id/numberFollower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/NumberZero"
+                    android:textColor="@android:color/white"
+                    android:textSize="20dip"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/textFollower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/numberFollower"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-5dp"
+                    android:text="@string/followers"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dip" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutFollowing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/numberFollowing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="20dip"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/textFollowing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/numberFollowing"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-5dp"
+                    android:text="@string/following"
+                    android:textColor="@android:color/white"
+                    android:textSize="15dip" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/listViewItemUser"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/headerView"
+        android:layout_margin="5dp"
+        android:dividerHeight="10dip"
+        android:verticalSpacing="5dp">
+    </ListView>
+
+</RelativeLayout>

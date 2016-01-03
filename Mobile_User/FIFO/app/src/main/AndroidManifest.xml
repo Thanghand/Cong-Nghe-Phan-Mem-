@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.smartchef.controller">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:name="com.smartchef.app.AppController"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.smartchef.controller.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.smartchef.controller.HomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.smartchef.controller.DetailMealActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar"></activity>
+        <activity
+            android:name="com.smartchef.controller.ViewUserActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar"></activity>
+
+        <activity
+            android:name="com.smartchef.controller.AccountSettingActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar"></activity>
+        <activity
+            android:name=".SearchingActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".TitleOptionActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar"></activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+    </application>
+
+</manifest>

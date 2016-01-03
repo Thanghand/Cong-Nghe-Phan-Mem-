@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">FIFO</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="nameTittleApp">SmartChef</string>
+    <string name="descriptionApp">Description</string>
+    <string name="loginWithFacebook">ĐĂNG NHẬP BẰNG FACEBOOK</string>
+    <string name="registerApp">ĐĂNG KÝ TÀI KHOẢN</string>
+    <string name="loginWithSmartChefApp">ĐĂNG NHẬP BẰNG SMARTCHEF</string>
+    <string name="facebook_app_id">361384150735832</string>
+    <string name="following">ĐANG THEO DÕI</string>
+    <string name="followers">THEO DÕI</string>
+    <string name="NumberZero">0</string>
+    <string name="Home">Trang Chủ</string>
+    <string name="User">Cá Nhân</string>
+    <string name="News">Tin Tức</string>
+    <string name="Time">Loại Thức Ăn</string>
+    <string name="Festival">Gia vị</string>
+    <string name="Hot">Chế độ</string>
+    <string name="Logout">Đăng Xuất</string>
+    <string name = "plus">Plus</string>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutMealItem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.etsy.android.grid.util.DynamicHeightImageView
+        android:id="@+id/mealPicture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradientbackground_profileview"
+        android:padding="10dp">
+
+        <com.smartchef.customview.CircularNetworkImageView
+            android:id="@+id/iconUser"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:focusable="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mealName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iconUser"
+            android:textColor="@android:color/white"
+            android:textSize="17dip"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/byUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mealName"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iconUser"
+            android:textSize="15dip"
+            android:visibility="gone" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mealName">
+
+            <ImageView
+                android:id="@+id/heartImage"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/heart"
+                android:scaleType="center" />
+
+            <TextView
+                android:id="@+id/numberLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/heartImage"
+                android:textColor="@color/mauxam"
+                android:textSize="15dip" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mautimden">
+
+    <TextView
+        android:id="@+id/tittleApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:layout_marginLeft="5dp"
+        android:textStyle="italic" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_centerVertical="true"
+        android:id="@+id/layoutSearch"
+        android:layout_toRightOf="@+id/tittleApp"
+        android:visibility="gone"
+        android:layout_height="50dp"
+        android:background="@drawable/roundbutton"
+        android:layout_margin="10dp">
+        <ImageView
+            android:id="@+id/iconSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search food ..."
+            android:textColor="@android:color/white"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/iconSearch"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"/>
+
+    </RelativeLayout>
+</RelativeLayout>

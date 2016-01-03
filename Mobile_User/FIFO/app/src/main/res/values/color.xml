@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="maudo">#EE0000</color>
+    <color name="maufacebook">#4D7FC7</color>
+    <color name="maugmail">#FF3333</color>
+    <color name="mauvang">#FFCC33</color>
+    <color name="mauxam">#DDDDDD</color>
+    <color name="mautrang">#FFFFFF</color>
+    <color name="mauden">#000000</color>
+    <color name="transparent_white">#1AFFFFFF</color>
+    <color name="genre">#666666</color>
+    <color name="year">#888888</color>
+    <color name="list_divider">#d9d9d9</color>
+    <color name="list_row_start_color">#ffffff</color>
+    <color name="list_row_end_color">#ffffff</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+    <color name="maudohong">#e74c3c</color>
+    <color name="text_color">#222222</color>
+    <color name="mautimden">#000033</color>
+</resources>
