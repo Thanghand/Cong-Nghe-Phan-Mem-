@@ -1,0 +1,57 @@
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csprojResolveAssemblyReference.cache
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Form1.resources
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Properties.Resources.resources
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csproj.GenerateResource.Cache
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.pdb
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.pdb
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.SmartChef.resources
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Properties.Resources.resources
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csproj.GenerateResource.Cache
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb
+E:\SmartChef\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csprojResolveAssemblyReference.cache
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.pdb
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csprojResolveAssemblyReference.cache
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.SmartChef.resources
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Properties.Resources.resources
+E:\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csproj.GenerateResource.Cache
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.pdb
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csprojResolveAssemblyReference.cache
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.SmartChef.resources
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Properties.Resources.resources
+E:\SmartChef\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csproj.GenerateResource.Cache
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csprojResolveAssemblyReference.cache
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.SmartChef.resources
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Properties.Resources.resources
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csproj.GenerateResource.Cache
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe
+D:\`Phat\uit\tai_lieu_hoc\hk8\IS213.F21_Do_An_HTTT\project_SmartChef\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.pdb
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.pdb
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csprojResolveAssemblyReference.cache
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.SmartChef.resources
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.Properties.Resources.resources
+E:\Tai lieu hoc dai hoc\Smart Chef Phat\source\SmartChef_Admin\smartchef_appadmins\SmartChef_Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.csproj.GenerateResource.Cache
+E:\Cong Nghe Phan Mem\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\bin\Debug\SmartChef_Admin.exe.config
+E:\Cong Nghe Phan Mem\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.exe
+E:\Cong Nghe Phan Mem\Cong-Nghe-Phan-Mem-\FIFO_Admin\Admin\SmartChef_Admin\obj\Debug\SmartChef_Admin.pdb

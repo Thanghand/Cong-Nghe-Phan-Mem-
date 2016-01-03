@@ -1,0 +1,16 @@
+spring:
+    appContextType: web
+
+    configLocationsType: classpath
+
+    configLocations:
+       - dropwizard-service.xml
+       
+    resources:
+       - loadWebServiceController
+       - calcREST
+
+http: 
+  port: 9092
+  adminPort: 8084
+  

@@ -1,0 +1,7 @@
+{
+"Favorite": 0,
+"History": 0,
+"StatusFollow": 0,
+"Following": 1,
+"Follower": 1
+}

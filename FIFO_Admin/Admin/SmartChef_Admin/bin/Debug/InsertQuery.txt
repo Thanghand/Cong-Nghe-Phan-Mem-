@@ -1,0 +1,1 @@
+insert into meal(nation_id,meal_type_id,time_id,fes_id,meal_name_vn,meal_pic,description_vn,tutorial_vn,inserted_by)values(2,4,4,4,Demo3,http://media.foody.vn/res/g9/88787/s125x125/foody-mr-seaweed-rong-bien-chay-toi-499-635533198020622099.JPG,dadad,adasdasdad,phatnd0302@gmail.com)

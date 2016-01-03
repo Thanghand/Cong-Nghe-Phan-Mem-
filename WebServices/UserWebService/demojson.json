@@ -1,0 +1,66 @@
+[
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 1,
+"mealNameVN": "kim chi cuộn cơm rang",
+"mealPicture": "http://192.168.0.101:8070/image/kim-chi-cuon-com-rang_400_276.jpg"
+},
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 2,
+"mealNameVN": "ádada",
+"mealPicture": "http://192.168.0.101:8070/image/a09d27c40476381642a938d64603a67c.jpg"
+},
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 3,
+"mealNameVN": "cơm hình gấu",
+"mealPicture": "http://192.168.0.101:8070/image/c%C6%A1m%20g%E1%BA%A5u_400_276.png"
+},
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 4,
+"mealNameVN": "Salat táo bắp cải tím",
+"mealPicture": "http://192.168.0.101:8070/image/Tuoi-mat-salad-tao-bap-cai-tim.jpg"
+},
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 5,
+"mealNameVN": "Bầu xào trai",
+"mealPicture": "http://192.168.0.101:8070/image/cach-lam-mon-bau-xao-trai-buoc-4.jpg"
+},
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 6,
+"mealNameVN": "Canh riêu cá",
+"mealPicture": "http://192.168.0.101:8070/image/rieu-ca-buoc-7.jpg"
+},
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 7,
+"mealNameVN": "Cánh gà nướng Hàn Quốc",
+"mealPicture": "http://192.168.0.101:8070/image/cach-lam-canh-ga-nuong-han-quoc-buoc-9.jpg"
+},
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 8,
+"mealNameVN": "Mì trộn",
+"mealPicture": "http://192.168.0.101:8070/image/cach-lam-mi-tron-buoc-7.jpg"
+},
+{
+"email": "phatnd0302@gmail.com",
+"fullName": "Nguyễn Đình Phát",
+"mealID": 9,
+"mealNameVN": "Tôm chiên cốt dừa",
+"mealPicture": "http://192.168.0.101:8070/image/cach-lam-tom-chien-cot-dua-buoc-7.jpg",
+"numberOfLike": 0
+}
+]
