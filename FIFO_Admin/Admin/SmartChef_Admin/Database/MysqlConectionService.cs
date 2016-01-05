@@ -7,11 +7,12 @@ using MySql.Data.MySqlClient ;
 using System.Data;
 using System.Windows.Forms;
 using SmartChef_Admin.Model;
+using SmartChef_Admin.Utils; 
 namespace SmartChef_Admin.Database
 {
     class MysqlConectionService
     {
-        private string connectionString = "Server=192.168.1.20;Port=3306;Database=fifo;Uid=root;Pwd=1234;";
+        private string connectionString = "Server=" + FileUtil.IP_SERVER + ";Port=3306;Database=fifo;Uid=root;Pwd=1234;";
 
         private MySqlConnection mySqlConnection; 
 
@@ -56,21 +57,31 @@ namespace SmartChef_Admin.Database
             adapter.Fill(dataSet);
             return dataSet;
         }
+
+        public DataSet searchMeal(String nameMeal)
+        {
+            DataSet dataSet = new DataSet();
+            MySqlCommand cmd = mySqlConnection.CreateCommand();
+            string query = "select * from meal where meal.mealNameVN like '%" + nameMeal + "%'";
+            cmd.CommandText = @query;
+            cmd.Parameters.AddWithValue("@nameMeal", nameMeal);
+            cmd.ExecuteNonQuery();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(dataSet);
+            return dataSet;
+        }
         public void InsertMeal(Meal meal)
         {
             try
             {
                 MySqlCommand cmd = mySqlConnection.CreateCommand();
-                cmd.CommandText = "insert into meal(nationID,mealTypeID,festivalID,mealNameVN,mealPicture,descriptionVN,tutorialVN,insertedByEmail,dietID)"
-                                       + "values (@nationID,@mealTypeID,@fesID,@mealName,@mealPic,@description,@tutorial,@insertedBy,@dietID)";
-                cmd.Parameters.AddWithValue("@nationID", meal.NationID);
+                cmd.CommandText = "insert into meal(mealTypeID,mealNameVN,mealPicture,descriptionVN,tutorialVN,dietID)"
+                                       + "values (@mealTypeID,@mealName,@mealPic,@description,@tutorial,@dietID)";
                 cmd.Parameters.AddWithValue("@mealTypeID", meal.MealTypeID);
-                cmd.Parameters.AddWithValue("@fesID", meal.FesID);
                 cmd.Parameters.AddWithValue("@mealName", meal.MealName);
                 cmd.Parameters.AddWithValue("@mealPic", meal.MealPic);
                 cmd.Parameters.AddWithValue("@description", meal.Description);
                 cmd.Parameters.AddWithValue("@tutorial", meal.Tutorial);
-                cmd.Parameters.AddWithValue("@insertedBy", meal.InsertedBy);
                 cmd.Parameters.AddWithValue("@dietID", meal.DietID);
                 cmd.ExecuteNonQuery();
             }

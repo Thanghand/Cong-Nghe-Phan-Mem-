@@ -53,9 +53,10 @@
             this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblname.Location = new System.Drawing.Point(59, 70);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(103, 16);
+            this.lblname.Size = new System.Drawing.Size(42, 16);
             this.lblname.TabIndex = 1;
-            this.lblname.Text = "Tên Đăng Nhập";
+            this.lblname.Text = "Email";
+            this.lblname.Click += new System.EventHandler(this.lblname_Click);
             // 
             // lblpassword
             // 
@@ -83,6 +84,7 @@
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(222, 29);
             this.txtpassword.TabIndex = 4;
+            this.txtpassword.TextChanged += new System.EventHandler(this.txtpassword_TextChanged);
             // 
             // btnLogin
             // 

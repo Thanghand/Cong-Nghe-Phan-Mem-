@@ -56,9 +56,10 @@ namespace SmartChef_Admin
             {
                 if (prv.Equals("1"))//                                 //kiem tra fai admin k
                 {
+                    this.Visible = false;
                     SmartChef s = new SmartChef();
                     s.Show();
-                    this.Visible = false;
+                   
                 }
                 else
                 {
@@ -80,6 +81,17 @@ namespace SmartChef_Admin
         {
             mysqlConectionService = new MysqlConectionService();
             mysqlConectionService.OpenConnection();
+            txtpassword.PasswordChar = '*';
+        }
+
+        private void lblname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtpassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

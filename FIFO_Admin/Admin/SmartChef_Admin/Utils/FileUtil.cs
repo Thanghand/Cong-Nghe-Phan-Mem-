@@ -10,6 +10,7 @@ namespace SmartChef_Admin.Utils
 {
     class FileUtil
     {
+        public static string IP_SERVER = "192.168.43.140";
         private static string path = @"E:\InsertQuery.txt";
         public static void ExportQueryFile (String query) 
         {
@@ -34,10 +35,10 @@ namespace SmartChef_Admin.Utils
         public static string DownLoadFile (String url )
         {
             string file = System.IO.Path.GetFileName(url);
-            MessageBox.Show(file);
-            string saveFile = @"E:\SmartChef\image\WebContent\" + file;
+            MessageBox.Show(url);
+            string saveFile = @"E:\Cong Nghe Phan Mem\Cong-Nghe-Phan-Mem-\WebServices\image\WebContent\" + file;
             
-            string hostfile = "http://localhost:8070/image/"+file;
+            string hostfile = "http://" + IP_SERVER + ":8070/image/"+file;
             WebClient cln = new System.Net.WebClient(); 
             cln.DownloadFile(url, saveFile);
             return hostfile; 

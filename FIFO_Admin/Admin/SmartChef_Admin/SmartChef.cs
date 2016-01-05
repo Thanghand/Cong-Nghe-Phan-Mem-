@@ -10,7 +10,9 @@ using System.Windows.Forms;
 using System.IO;
 using SmartChef_Admin.Database;
 using SmartChef_Admin.Model;
-using SmartChef_Admin.Utils; 
+using SmartChef_Admin.Utils;
+using Microsoft.Office.Interop.Excel;
+
 namespace SmartChef_Admin
 {
     public partial class SmartChef : Form
@@ -21,12 +23,12 @@ namespace SmartChef_Admin
         }
         private  int flagInsert = 0 ; 
         private MysqlConectionService mysqlConectionService ;
-
+        private DataSet dataSet; 
         private static string query = "select * from MEAL ; ";
 
         private void LoadMealData()
         {
-            DataSet dataSet = mysqlConectionService.LoadData(query);
+            dataSet = mysqlConectionService.LoadData(query);
             dgvMeal.DataSource = dataSet.Tables[0].DefaultView;
           
         }
@@ -39,10 +41,8 @@ namespace SmartChef_Admin
             mysqlConectionService.OpenConnection();
             this.LoadMealData();
             cbbMealTypeID.SelectedIndex = 0;
-            cbbFesID.SelectedIndex = 0;
-            cbbNationID.SelectedIndex = 0;
             cbbDiet.SelectedIndex = 0;
-            cbbInsertedBy.SelectedIndex = 0;
+         
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -61,8 +61,6 @@ namespace SmartChef_Admin
             Meal meal = new Meal();
             meal.MealName = txtMealName.Text; 
             meal.MealTypeID = cbbMealTypeID.SelectedIndex + 1;
-            meal.NationID = cbbNationID.SelectedIndex + 1;
-            meal.FesID = cbbFesID.SelectedIndex + 1;
             meal.DietID = cbbDiet.SelectedIndex + 1;
             string url = txtMealPicture.Text; 
             string file = "" ; 
@@ -76,7 +74,7 @@ namespace SmartChef_Admin
             
             meal.Description = txtDescription.Text;
             meal.Tutorial = txtTutorial.Text;
-            meal.InsertedBy = cbbInsertedBy.SelectedItem.ToString();
+       
             mysqlConectionService.InsertMeal(meal);
             string query = DatabaseUtil.GetMealInsertQuery(meal);
             // Export File Query 
@@ -95,8 +93,6 @@ namespace SmartChef_Admin
                 Meal meal = new Meal();
                 meal.MealName = txtMealName.Text;
                 meal.MealTypeID = cbbMealTypeID.SelectedIndex + 1;
-                meal.NationID = cbbNationID.SelectedIndex + 1;
-                meal.FesID = cbbFesID.SelectedIndex + 1;
                 meal.DietID = cbbDiet.SelectedIndex + 1;
                 meal.MealPic = txtMealPicture.Text;
                 meal.Description = txtDescription.Text;
@@ -145,43 +141,32 @@ namespace SmartChef_Admin
         {
            
             int checkLastRow = dgvMeal.Rows.Count - 1 ;
-            dgvMeal.Rows[checkLastRow].Selected = false; 
+            dgvMeal.Rows[checkLastRow].Selected = false;
             foreach (DataGridViewRow row in this.dgvMeal.SelectedRows)
             {
-                    row.Selected = true; 
-                    this.cbbNationID.SelectedIndex = int.Parse((row.Cells[1].Value.ToString())) - 1;
-                    this.cbbMealTypeID.SelectedIndex = int.Parse((row.Cells[2].Value.ToString())) - 1;
-                    this.cbbDiet.SelectedIndex = int.Parse((row.Cells[4].Value.ToString())) - 1;
-                    this.cbbFesID.SelectedIndex = int.Parse((row.Cells[3].Value.ToString())) - 1;
-                  
-                    this.txtMealName.Text = row.Cells[5].Value.ToString();
-                    this.txtMealPicture.Text = row.Cells[6].Value.ToString();
-                    this.txtDescription.Text = row.Cells[8].Value.ToString();
-                    this.txtTutorial.Text = row.Cells[9].Value.ToString();
-                    String url = row.Cells[6].Value.ToString();
-                    //if (url.Contains("http://"))
-                    //{      
-                    //    if (ImageUtil.FromUrl(url) != null)
-                    //    {
-                    //        this.pbMealPicture.Image = Image.FromStream(new MemoryStream(ImageUtil.FromUrl(url)));
-                    //        this.pbMealPicture.SizeMode = PictureBoxSizeMode.StretchImage;
-                    //    }
+                row.Selected = true;
+                //this.cbbNationID.SelectedIndex = int.Parse((row.Cells[1].Value.ToString())) - 1;
+                this.cbbMealTypeID.SelectedIndex = int.Parse((row.Cells[1].Value.ToString())) - 1;
+                this.cbbDiet.SelectedIndex = int.Parse((row.Cells[2].Value.ToString())) - 1;
+                //this.cbbFesID.SelectedIndex = int.Parse((row.Cells[3].Value.ToString())) - 1;
 
-                    //}
-              
-               
-            }
+                this.txtMealName.Text = row.Cells[3].Value.ToString();
+                this.txtMealPicture.Text = row.Cells[4].Value.ToString();
+                this.txtDescription.Text = row.Cells[6].Value.ToString();
+                this.txtTutorial.Text = row.Cells[7].Value.ToString();
+                String url = row.Cells[4].Value.ToString();
+                if (url.Contains("http://"))
+                {
+                    if (ImageUtil.FromUrl(url) != null)
+                    {
+                        this.pbMealPicture.Image = Image.FromStream(new MemoryStream(ImageUtil.FromUrl(url)));
+                        this.pbMealPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
 
-                
-            try
-            {
-              
-            }
-            catch ( Exception ex )
-            {
-                throw ex; 
-            }
-                  
+                }
+
+
+            }   
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
@@ -215,7 +200,7 @@ namespace SmartChef_Admin
                     {
                         DataGridViewCell cellId = row.Cells[0];
                         int id = int.Parse(cellId.Value.ToString());
-                        DataGridViewCell cellImageUrl = row.Cells[6];
+                        DataGridViewCell cellImageUrl = row.Cells[4];
                         string imageUrl = cellImageUrl.Value.ToString();
 
                         if (imageUrl.Contains(srcIP))
@@ -241,6 +226,108 @@ namespace SmartChef_Admin
 
         }
 
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+         
+            String namemealsearch = "";
+            DataSet datasetSearch;
+            namemealsearch = txtsearch.Text;
+            datasetSearch = mysqlConectionService.searchMeal(namemealsearch);
+            dgvMeal.DataSource = datasetSearch.Tables[0].DefaultView;
+        }
 
+        private void btnChangeIP_Click_1(object sender, EventArgs e)
+        {
+            String destIP = txtDestIP.Text.ToString();
+            String srcIP = txtSrcIP.Text.ToString();
+            int i = 0;
+
+            foreach (DataGridViewRow row in this.dgvMeal.Rows)
+            {
+
+                if (i < dgvMeal.Rows.Count - 1)
+                {
+                    DataGridViewCell cellId = row.Cells[0];
+                    int id = int.Parse(cellId.Value.ToString());
+                    DataGridViewCell cellImageUrl = row.Cells[4];
+                    string imageUrl = cellImageUrl.Value.ToString();
+
+                    if (imageUrl.Contains(srcIP))
+                    {
+                        imageUrl = imageUrl.Replace(srcIP, destIP);
+                        mysqlConectionService.UpdateHostImage(imageUrl, id);
+                    }
+                    i++;
+                }
+                else
+                    break;
+            }
+            this.LoadMealData();
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            this.LoadMealData();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            string link = txtlink.Text;
+            Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+            app.Visible = false;
+            Microsoft.Office.Interop.Excel.Workbook wb = app.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
+            Worksheet ws = (Worksheet)wb.ActiveSheet;
+            
+            System.Data.DataTable dt = new System.Data.DataTable();
+            dt = ((DataView)dgvMeal.DataSource).Table;
+           
+            // Headers.  
+            for (int i = 0; i < dt.Columns.Count; i++)
+            {
+                ws.Cells[1, i + 1] = dt.Columns[i].ColumnName;
+               
+            }
+
+            // Content.  
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    ws.Cells[i + 2, j + 1] = dt.Rows[i][j].ToString();
+                   
+                }
+            }
+            wb.SaveAs(link);
+            wb.Close();
+            MessageBox.Show("Export has been completed at : " + link,"Completed",MessageBoxButtons.OK);
+            app.Quit();
+        }
+
+        private void btnbrowser_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+
+            saveFileDialog1.Title = "Save Excel Files";
+
+            saveFileDialog1.CheckFileExists = false;
+
+            saveFileDialog1.CheckPathExists = false;
+
+            saveFileDialog1.DefaultExt = "xls";
+
+            saveFileDialog1.Filter = "Text files (*.xls)|*.xls|All files (*.*)|*.*";
+
+            saveFileDialog1.FilterIndex = 2;
+
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtlink.Text = saveFileDialog1.FileName;
+            }
+        }
     }
+
 }
