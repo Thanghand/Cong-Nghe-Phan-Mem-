@@ -5,7 +5,8 @@ package com.smartchef.utils;
  */
 public class WebServiceUtil {
 
-    public static String IP_SERVER = "http://192.168.1.20";
+
+    public static String IP_SERVER = "http://192.168.43.140";
     public static String USER_WEBSERVICE = IP_SERVER + ":9090/userws/postUser";
     public static String SUGGEST_MEAL = IP_SERVER + ":9091/handlingws/getMeal?email=";
     public static String HANDLING_WEBSERVICE_GET_MEAL_DETAIL = IP_SERVER + ":9091/handlingws/getDetailOfMeal?mealID=";
@@ -17,7 +18,12 @@ public class WebServiceUtil {
     public static String ACTION_LIKE_MEAL = IP_SERVER + ":9091/handlingws/actionLikes";
     public static String SEARCH_MEAL = IP_SERVER + ":9092/searchws/searchMealName?mealName=";
     public static String SHOW_FAVORITE = IP_SERVER + ":9091/handlingws/showFavorite?email=";
-    public static String INSERT_SEEN_HISTORY = IP_SERVER + ":9091/handlingws/insertSeenHistoy?";
+    public static String INSERT_NEW_COLLECTION = IP_SERVER +":9091/handlingws/insertNewCollection";
+    public static String UPDATE_MEAL_INTO_COLLECTION = IP_SERVER + ":9091/handlingws/newMealCollection";
+    public static String GET_COLLECTION_NAME = IP_SERVER + ":9091/handlingws/getCollectionName?email=";
+    public static String GET_DETAIL_COLLECTION = IP_SERVER + ":9091/handlingws/getMealListFromCollectionName?email=";
+    public static String DELETE_COLLECTION = IP_SERVER + ":9091/handlingws/deleteCollection";
+    public static String EDIT_COLLECTION_NAME = IP_SERVER + ":9091/handlingws/updateNameOfCollectionName";
 
     public static String informationUserPage(String mainUser, String anotherUser) {
         String keyMainUser = "emailUser=";
@@ -29,11 +35,11 @@ public class WebServiceUtil {
         return HANDLING_WEBSERVICE_GET_MEAL_DETAIL + mealId + "&email=" + email;
     }
 
-    public static String insertSeenHistory(String email, String mealID) {
-        String keyEmail = "email=";
-        String keyMealID = "mealID=";
-        return INSERT_SEEN_HISTORY + keyEmail + email + "&" + keyMealID + mealID;
+
+    public static String getCollectionNameDialog(String email, String type, String mealID){
+        return GET_COLLECTION_NAME + email + "&type=" + type + "&mealID=" + mealID;
     }
-
-
+    public static String getDetailCollection (String email, String collectionName){
+        return GET_DETAIL_COLLECTION + email +"&collectionName=" + collectionName;
+    }
 }

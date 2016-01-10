@@ -47,6 +47,15 @@
             android:label="@string/app_name"
             android:theme="@style/NoActionBar"></activity>
         <activity
+            android:name=".CollectionActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar"></activity>
+
+        <activity
+            android:name=".DetailCollectionActivity"
+            android:label="@string/app_name"
+            android:theme="@style/NoActionBar"></activity>
+        <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"

@@ -25,7 +25,6 @@ public class AccountSettingActivity extends BaseActionBarActivity {
 
     private TextView accountEmail;
     private EditText editTextUserName;
-    private EditText editTextBirthDate;
     private Button buttonSave;
     private UserSmartChef userSmartChef;
     private PostObjectService postObjectService;
@@ -59,7 +58,6 @@ public class AccountSettingActivity extends BaseActionBarActivity {
     private void defineVIew() {
         sessionManager = new SessionManager(this);
         editTextUserName = (EditText) findViewById(R.id.editTextUserName);
-        editTextBirthDate = (EditText) findViewById(R.id.editTextBirthDate);
         accountEmail = (TextView) findViewById(R.id.fieldUserEmail);
         buttonSave = (Button) findViewById(R.id.btnSave);
         buttonSave.setOnClickListener(new View.OnClickListener() {

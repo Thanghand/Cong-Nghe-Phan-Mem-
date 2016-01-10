@@ -37,7 +37,9 @@ public class SearchingActivity extends BaseActionBarActivity {
     private ListView listView;
     private SearchAdapter searchAdapter;
     private List<Map<String, Object>> meals;
-    private String tupeMeal ;
+    private String tupeMeal;
+    private String typeSuggesstMeal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,17 +65,23 @@ public class SearchingActivity extends BaseActionBarActivity {
         defineView();
         actionListener();
         getDataFromIntent();
-        searchView.setQuery(tupeMeal, false);
-        searchView.setFocusable(true);
-        searchView.setIconified(false);
-        searchView.requestFocusFromTouch();
+//        searchView.setQuery(tupeMeal, false);
+//        searchView.setFocusable(true);
+//        searchView.setIconified(false);
+//        searchView.requestFocusFromTouch();
     }
 
     private void getDataFromIntent() {
         int typeSearch = getIntent().getExtras().getInt(LoadContant.TYPE_SEARCH);
-         tupeMeal = getIntent().getExtras().getString(LoadContant.OPITON_MEAL);
+        tupeMeal = getIntent().getExtras().getString(LoadContant.OPITON_MEAL);
+        typeSuggesstMeal = getIntent().getExtras().getString(LoadContant.TYPE_MEAL_OPTION);
         if (typeSearch == LoadContant.KEY_SEARCH_BY_SELECT_OPTION) {
-            loadMealDataFromWebservices(WebServiceUtil.GET_MEAL_BASE_ON_TYPE_MEAL + tupeMeal);
+            searchView.setVisibility(View.GONE);
+            if (typeSuggesstMeal.equals("typeMeal"))
+                loadMealDataFromWebservices(WebServiceUtil.GET_MEAL_BASE_ON_TYPE_MEAL + tupeMeal);
+            else {
+                loadMealDataFromWebservices(WebServiceUtil.GET_MEAL_BASE_ON_DIET_MEAL + tupeMeal);
+            }
         }
     }
 
@@ -104,14 +112,6 @@ public class SearchingActivity extends BaseActionBarActivity {
             }
 
         });
-//        imageSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d("SEarch", "Search: " + WebServiceUtil.SEARCH_MEAL + handleSpaceWhite(editTextSearch.getText().toString()));
-//                loadMealDataFromWebservices(WebServiceUtil.SEARCH_MEAL + handleSpaceWhite(editTextSearch.getText().toString()));
-//
-//            }
-//        });
     }
 
     private void loadMealDataFromWebservices(String url) {

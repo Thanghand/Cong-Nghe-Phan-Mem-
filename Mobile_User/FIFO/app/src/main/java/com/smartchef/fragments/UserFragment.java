@@ -34,6 +34,7 @@ import com.smartchef.apdaters.UserAdapter;
 import com.smartchef.app.AppController;
 import com.smartchef.controller.AccountSettingActivity;
 import com.smartchef.controller.BaseActionBarActivity;
+import com.smartchef.controller.CollectionActivity;
 import com.smartchef.controller.R;
 import com.smartchef.controller.TitleOptionActivity;
 import com.smartchef.model.SessionManager;
@@ -68,21 +69,14 @@ public class UserFragment extends BaseFragment {
     private ListView listView;
     private OptionUserAdapter optionUserAdapter;
     private ArrayList<Map<String, String>> listTittle;
-    private TextView numberFollowing;
-    private TextView numberFollower;
     private PostObjectService postObjectService;
     private ImageView backgroundUserProfile;
     private static int RESULTCODE = 1;
-    private RelativeLayout layoutFollower;
-    private RelativeLayout laoutFollowing;
     // Dialog
     private Dialog dialogFriends;
     private Button dialogButtonExit;
     private ListView dialogListView;
     private List<Map<String, Object>> dialogItemsFriend;
-    private List<Map<String, Object>> dialogItemsFollower;
-    private List<Map<String, Object>> dialogItemsFollowing;
-    private UserAdapter userAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,10 +107,6 @@ public class UserFragment extends BaseFragment {
         imageProfile = (CircleImageView) getView().findViewById(R.id.imageUserProfile);
         imageBackground = (ImageView) getView().findViewById(R.id.backgroundUserProfile);
         backgroundUserProfile = (ImageView) getView().findViewById(R.id.backgroundUserProfile);
-        numberFollower = (TextView) getView().findViewById(R.id.numberFollower);
-        numberFollowing = (TextView) getView().findViewById(R.id.numberFollowing);
-        layoutFollower = (RelativeLayout) getView().findViewById(R.id.layoutFollower);
-        laoutFollowing = (RelativeLayout) getView().findViewById(R.id.layoutFollowing);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background1);
         // bitmap = ImageUtil.blurImage(getActivity().getApplicationContext(), bitmap);
         imageBackground.setImageBitmap(bitmap);
@@ -127,15 +117,16 @@ public class UserFragment extends BaseFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(), TitleOptionActivity.class);
-                intent.putExtra("Email", getFeedBackActivityService().getUserSmartChef().getEmail());
-                intent.putExtra("Tittle", listTittle.get(position).get(LoadContant.TITLE));
-                getActivity().startActivity(intent);
-            }
-        });
-        layoutFollower.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                if (!listTittle.get(position).get(LoadContant.TITLE).equals("My Collections")) {
+                    Intent intent = new Intent(getActivity(), TitleOptionActivity.class);
+                    intent.putExtra("Email", getFeedBackActivityService().getUserSmartChef().getEmail());
+                    intent.putExtra("Tittle", listTittle.get(position).get(LoadContant.TITLE));
+                    getActivity().startActivity(intent);
+                } else {
+                    Intent intent = new Intent(getActivity(), CollectionActivity.class);
+                    intent.putExtra("Email", getFeedBackActivityService().getUserSmartChef().getEmail());
+                    getActivity().startActivity(intent);
+                }
 
             }
         });
@@ -182,28 +173,6 @@ public class UserFragment extends BaseFragment {
                 }
             }, 0, 0, null, null);
             AppController.getInstance().addToRequestQueue(imageRequest);
-//            BitmapTransformation bitmapTransformation = new BitmapTransformation(getActivity()) {
-//                @Override
-//                protected Bitmap transform(BitmapPool pool, Bitmap toTransform, int outWidth, int outHeight) {
-//
-//                    DisplayMetrics metrics = getActivity().getResources().getDisplayMetrics();
-//                    int width = metrics.widthPixels;
-//                    int height = metrics.heightPixels;
-//                    //   Toast.makeText(getActivity(), "Width: " + width + "-Height :" + height, Toast.LENGTH_LONG).show();
-//                    Bitmap result = ScalingUtilities.createScaledBitmap(toTransform, width, height, ScalingUtilities.ScalingLogic.FIT);
-//                    return result;
-//                }
-//
-//                @Override
-//                public String getId() {
-//                    return "com.smartchef.fragments.UserFragment";
-//                }
-//            };
-//            Glide.with(getActivity()).load("http://" + imageURL).transform(bitmapTransformation).diskCacheStrategy(DiskCacheStrategy.ALL).into(backgroundUserProfile);
-//            Glide.with(getActivity()).load("http://" + imageURL).transform(bitmapTransformation).diskCacheStrategy(DiskCacheStrategy.ALL).into(imageProfile);
-//            if (imageURL != null) {
-//
-//            }
             imageProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -228,13 +197,10 @@ public class UserFragment extends BaseFragment {
                     favortie.put(LoadContant.TITLE, "Favorite");
                     favortie.put(LoadContant.NUMBER, HandleDataUtil.convertObjectDoubleToInteger(data.get("Favorite")) + " Views");
                     Map<String, String> newPost = new HashMap<String, String>();
-                    newPost.put(LoadContant.TITLE, "My Recipes");
-                    newPost.put(LoadContant.NUMBER, HandleDataUtil.convertObjectDoubleToInteger(data.get("NEWPOST")) + " Views");
+                    newPost.put(LoadContant.TITLE, "My Collections");
+                    newPost.put(LoadContant.NUMBER, HandleDataUtil.convertObjectDoubleToInteger(data.get("MyCollection")) + " Views");
                     listTittle.add(favortie);
                     listTittle.add(newPost);
-                    numberFollower.setText(HandleDataUtil.convertObjectDoubleToInteger(data.get("Follower")) + "");
-                    numberFollowing.setText(HandleDataUtil.convertObjectDoubleToInteger(data.get("Following")) + "");
-
                     if (getFeedBackActivityService().getUserSmartChef().getFlagUser().equals(LoadContant.FLAG_MAIN_USER)) {
                         btnLogout.setText(getResources().getString(R.string.Logout));
                         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -306,42 +272,5 @@ public class UserFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-
-//        if (getFeedBackActivityService().getUserSmartChef().getFullName().equals(sessionManager.getUserDetail().getFullName())) {
-//            nameUser.setText(sessionManager.getUserDetail().getFullName());
-//        }
-
     }
-
-    private void defineDiaLog() {
-        dialogFriends = new Dialog(getActivity());
-        dialogFriends.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        dialogFriends.getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
-        dialogFriends.setContentView(R.layout.dialog_friend);
-        dialogButtonExit = (Button) dialogFriends.findViewById(R.id.dialogCloseButton);
-        dialogListView = (ListView) dialogFriends.findViewById(R.id.dialogListFriend);
-        dialogItemsFriend = new ArrayList<>();
-        dialogItemsFollower = new ArrayList<>();
-        dialogItemsFollowing = new ArrayList<>();
-        userAdapter = new UserAdapter((BaseActionBarActivity) dialogFriends.getOwnerActivity(), dialogItemsFriend);
-        dialogButtonExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogFriends.dismiss();
-            }
-        });
-    }
-
-//    private void compareListFollerAndFollowing(List<Map<String, Object>> follower, List<Map<String, Object>> following) {
-//        String statusKey = "statusLike";
-//        for (Map<String, Object> item : following) {
-//            item.put(statusKey, "Following");
-//        }
-//        for (Map<String ,Object> item : follower)
-//        {
-//            if ( following.contains(item))
-//        }
-//    }
 }
