@@ -74,7 +74,7 @@ namespace SmartChef_Admin
                 txtname.Text = "";
                 txtpassword.Text = "";
             }
-            mysqlConectionService.CloseConnection();
+           
         }
 
         private void Login_Load(object sender, EventArgs e)

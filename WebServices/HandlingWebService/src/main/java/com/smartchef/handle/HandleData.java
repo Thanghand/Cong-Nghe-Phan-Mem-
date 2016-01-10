@@ -2,6 +2,7 @@ package com.smartchef.handle;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -150,119 +151,80 @@ public class HandleData {
 		return result;
 	}
 
-	public static void main(String[] arg0) {
-		MySqlImplService mySqlImplService = new MySqlImplService();
+	public String getCollectinNameByType(String email, String type,
+			String mealID) {
 		String result = "";
-		String countMeal = "";
-		int count = 0;
-		String email = "thanghandsome1302@gmail.com";
 		mySqlImplService.openConnection();
-		List<Map<String, Object>> maps = DatabaseUtil
-				.readResultFromDB(mySqlImplService.getRatingofAllUser());
-		List<Map<String, Object>> mapCount = DatabaseUtil
-				.readResultFromDB(mySqlImplService.getCountRatingMeal());
-		countMeal = JsonUtil.convertObjectToJson(mapCount.get(0)
-				.get("count(*)"));
-		count = Integer.parseInt(countMeal);
-		System.out.println("Count: " + countMeal);
+		List<Map<String, Object>> maps = mySqlImplService
+				.showCollectionNameByType(email, type);
 		result = JsonUtil.convertObjectToJson(maps);
+		if (type.equals(LoadConstant.TYPE_DIALOG)) {
+			// Check Meal Has been existed in Collections
+			for (Map<String, Object> item : maps) {
+				String mealList = item.get("mealList").toString();
+				if (mealList.contains(mealID)) {
+					result = "[" + JsonUtil.convertObjectToJson("Existed")
+							+ "]";
+					break;
+				}
+			}
+		}
 
 		mySqlImplService.closeConnection();
-		System.out.println(maps.size());
-		System.out.println(result);
-		Map<String, Object> targetUser = null;
-		List<Float> listDoTuongDong = new ArrayList<Float>();
-		List<Float> listRatingEverage = new ArrayList<Float>();
-		for (Map<String, Object> item : maps) {
-			if (item.get("email").equals(email)) {
-				targetUser = item;
-				break;
-			}
-		}
-		maps.remove(targetUser);
-		System.out.println(targetUser);
-		String item = "1453";
-		item = item.substring(item.length() - 1);
-		System.out.println(item);
-		// Tinh do tuong dong rut rating cua user
-		for (int i = 0; i < maps.size(); i++) {
-			float doTuongDong = DatabaseUtil.caculateSimilarative(targetUser
-					.get("rating").toString(), maps.get(i).get("rating")
-					.toString());
-			listDoTuongDong.add(doTuongDong);
-		}
-		List<Float> maxTwoNumber = DatabaseUtil
-				.getTwoMaxSimilaritive(listDoTuongDong);
-		int indexOfMaxNumberOne = listDoTuongDong.indexOf(maxTwoNumber.get(0));
-		int indexOfMaxNumberTwo = listDoTuongDong.indexOf(maxTwoNumber.get(1));
-		Map<String, Object> userOne = maps.get(indexOfMaxNumberOne);
-		Map<String, Object> userTwo = maps.get(indexOfMaxNumberTwo);
-		// Replace 21 = count
-		float everageOfItemOne = DatabaseUtil.ratingEverage(
-				userOne.get("rating").toString(), 21);
-		float everageOfItemTwo = DatabaseUtil.ratingEverage(
-				userTwo.get("rating").toString(), 21);
-		float everageOfTargetUser = DatabaseUtil.ratingEverage(
-				targetUser.get("rating").toString(), 21);
-		System.out.println("Rating 1 :" + everageOfItemOne);
-		System.out.println("Rating 2 :" + everageOfItemTwo);
-		System.out.println("Rating target :" + everageOfTargetUser);
-		// Suggest list meal
-		// Union listMeal itemOne and itemTwo
-		List<String> listMealUnion = new ArrayList<String>();
-		String[] arrayItemTemp = userOne.get("rating").toString().split(",");
-		for (String itemTemp : arrayItemTemp) {
-			itemTemp = DatabaseUtil.getMealIDFromStringItem(itemTemp);
-			if (!listMealUnion.contains(itemTemp))
-				listMealUnion.add(itemTemp);
-		}
-		arrayItemTemp = userTwo.get("rating").toString().split(",");
-		for (String itemTemp : arrayItemTemp) {
-			itemTemp = DatabaseUtil.getMealIDFromStringItem(itemTemp);
-			if (!listMealUnion.contains(itemTemp))
-				listMealUnion.add(itemTemp);
-		}
-		// Compare with User Target
-		List<String> listMealTarget = new ArrayList<String>();
-		arrayItemTemp = targetUser.get("rating").toString().split(",");
-		for (String itemTemp : arrayItemTemp) {
-			itemTemp = DatabaseUtil.getMealIDFromStringItem(itemTemp);
-			if (!listMealTarget.contains(itemTemp))
-				listMealTarget.add(itemTemp);
-		}
-		for (String itemTemp : listMealTarget) {
-			if (listMealUnion.contains(itemTemp)) {
-				listMealUnion.remove(itemTemp);
-			}
-		}
-		System.out.println(listMealTarget);
-		System.out.println(listMealUnion);
-		// Predicted rating of meal
-		float mauSo = 0;
-		for (float doTuongDong : maxTwoNumber) {
-			System.out.println("TD :" + doTuongDong);
-			mauSo += doTuongDong;
-		}
-		System.out.println("MauSo : " + mauSo);
-		List<String> listPredictedMeal = new ArrayList<String>();
-		for (String mealID : listMealUnion) {
-			System.out.print("Meal ID : " + mealID + " - ");
-			float tuSo = 0;
-			float ratingOfMealIdOfItemOne = DatabaseUtil
-					.getRatingOfMealFromlistMeal(mealID, userOne.get("rating")
-							.toString());
-			float ratingOfMealIdOfItemTwo = DatabaseUtil
-					.getRatingOfMealFromlistMeal(mealID, userTwo.get("rating")
-							.toString());
-			tuSo = (maxTwoNumber.get(0) * (ratingOfMealIdOfItemOne - everageOfItemOne))
-					+ (maxTwoNumber.get(1) * (ratingOfMealIdOfItemTwo - everageOfItemTwo));
-			float ratingMeal = everageOfTargetUser + tuSo / mauSo;
-			int currentratingMeal = (int) ratingMeal;
-			String suggestMealRating = "0" + mealID + currentratingMeal;
-			System.out.println(suggestMealRating);
-			if (ratingMeal >= 3.0)
-				listPredictedMeal.add(mealID);
-		}
-		System.out.println(listPredictedMeal);
+		return result;
+	}
+
+	public String getMealListFromCollectionName(String email,
+			String collectionName) {
+		String result = "";
+		mySqlImplService.openConnection();
+		List<Map<String, Object>> maps = mySqlImplService
+				.showMealListOfCollectionName(email, collectionName);
+		result = JsonUtil.convertObjectToJson(maps);
+		System.out.println("Result : " + result);
+		mySqlImplService.closeConnection();
+		return result;
+	}
+
+	// delete collection
+	public String deleteCollectionNameFromCollection(String email,
+			String collectionName) {
+		String result = "";
+		mySqlImplService.openConnection();
+		result = mySqlImplService.deleteCollectionNameFromCollection(
+				collectionName, email);
+		mySqlImplService.closeConnection();
+		return result;
+	}
+
+	// update name collectionName
+	public String updateNameOfCollectionName(String email, String oldCollectionName, String newCollectionName) {
+		String result = "";
+		mySqlImplService.openConnection();
+		result = mySqlImplService.updateNameOfCollectionName(oldCollectionName,newCollectionName,
+				email);
+		mySqlImplService.closeConnection();
+		return result;
+	}
+
+	// Main Demo
+	public static void main(String[] arg0) {
+		// String demo = "54, 48 ,56";
+		// System.out.println("Demo : " + demo.substring(0,2));
+		// MySqlImplService mySqlImplService = new MySqlImplService();
+		// String result = "";
+		// String email = "thanghandsome1302@gmail.com";
+		// String type = "Activity";
+		// String mealID = "";
+		// String collectionName = "Tap Ta";
+		// mySqlImplService.openConnection();
+		// List<Map<String, Object>> maps = mySqlImplService
+		// .showMealListOfCollectionName(email, collectionName);
+		// result = JsonUtil.convertObjectToJson(maps);
+		// System.out.println("Result : " + result);
+		// mySqlImplService.closeConnection();
+		String item = "Tap Ta Ne";
+		item = item.replace(" ", "%20");
+		System.out.print(item);
 	}
 }

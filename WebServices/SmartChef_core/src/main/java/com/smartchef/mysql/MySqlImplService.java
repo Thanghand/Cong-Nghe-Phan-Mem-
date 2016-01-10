@@ -7,7 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.crypto.Data;
@@ -97,7 +99,6 @@ public class MySqlImplService implements MysqlService {
 		Map<String, Object> mapDetailMeal = new HashMap<String, Object>();
 		ResultSet resultSet = null;
 		String statusLikeMeal = "";
-		String userPost = "";
 		try {
 			statement = connect.createStatement();
 			PreparedStatement preparedStatement = connect
@@ -537,6 +538,7 @@ public class MySqlImplService implements MysqlService {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			result = "Collection has been existed";
 		}
 		return result;
 	}
@@ -566,18 +568,133 @@ public class MySqlImplService implements MysqlService {
 	public String updateMealIntoCollection(String email, String collectionName,
 			String mealList) {
 		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
 		String result = "";
 		try {
 
 			PreparedStatement preparedStatement = connect
 					.prepareStatement(DatabaseUtil.UPDATE_NEW_MEAL_INTO_COLEECTION);
-			preparedStatement.setString(1, mealList);
+			preparedStatement.setString(1, mealList + ",");
 			preparedStatement.setString(2, email);
 			preparedStatement.setString(3, collectionName);
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 			result = "Success";
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public List<Map<String, Object>> showCollectionNameByType(String email,
+			String type) {
+		// TODO Auto-generated method stub
+		ResultSet resultSet = null;
+		try {
+			PreparedStatement preparedStatement = connect
+					.prepareStatement(DatabaseUtil.SHOW_MEALLIST_OF_COLLECTION);
+			preparedStatement.setString(1, email);
+			resultSet = preparedStatement.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<Map<String, Object>> maps = DatabaseUtil
+				.readResultFromDB(resultSet);
+		if (type.equals(LoadConstant.TYPE_ACTIVITY)) {
+			// Get List String Meal ID
+			for (Map<String, Object> mapItem : maps) {
+				String mealList = mapItem.get("mealList").toString();
+				String mealImage = "";
+				if (mealList.length() > 0) {
+					String firstMealID = mealList.substring(0, 2);
+
+					Map<String, Object> firstMealObject = getDetailMeal(
+							DatabaseUtil.GET_DETAIL_MEAL, firstMealID, email);
+					List<Map<String, Object>> mapResultSet = DatabaseUtil
+							.readResultFromDB((ResultSet) firstMealObject
+									.get("ResultSetMeal"));
+
+					if (mapResultSet != null) {
+						mealImage = mapResultSet.get(0).get("mealPicture")
+								.toString();
+						System.out.println("mealImage: " + mealImage);
+					}
+				}
+				mapItem.put("collectionPicture", mealImage);
+			}
+		}
+
+		return maps;
+	}
+
+	@Override
+	public List<Map<String, Object>> showMealListOfCollectionName(String email,
+			String collectionName) {
+		// TODO Auto-generated method stub
+		ResultSet resultSet = null;
+		List<Map<String, Object>> resultData = new ArrayList<Map<String, Object>>();
+		try {
+			PreparedStatement preparedStatement = connect
+					.prepareStatement(DatabaseUtil.SHOW_LIST_MEAL_FROM_COLLECTION_NAME);
+			preparedStatement.setString(1, email);
+			preparedStatement.setString(2, collectionName);
+			resultSet = preparedStatement.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		List<Map<String, Object>> maps = DatabaseUtil
+				.readResultFromDB(resultSet);
+		String mealList = maps.get(0).get("mealList").toString();
+		String[] splitMealArray = mealList.split(",");
+		for (String mealId : splitMealArray) {
+			Map<String, Object> firstMealObject = getDetailMeal(
+					DatabaseUtil.GET_DETAIL_MEAL, mealId, email);
+			List<Map<String, Object>> mapResultSet = DatabaseUtil
+					.readResultFromDB((ResultSet) firstMealObject
+							.get("ResultSetMeal"));
+			resultData.add(mapResultSet.get(0));
+		}
+		return resultData;
+	}
+
+	@Override
+	public String deleteCollectionNameFromCollection(String collectionName,
+			String email) {
+		// TODO Auto-generated method stub
+		String result = "";
+		try {
+
+			PreparedStatement preparedStatement = connect
+					.prepareStatement(DatabaseUtil.DELETE_COLLECTION);
+			preparedStatement.setString(1, email);
+			preparedStatement.setString(2, collectionName);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+			result = "Delete Success";
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public String updateNameOfCollectionName(String oldCollectionName, String newCollectionName, String email) {
+		// TODO Auto-generated method stub
+		String result = "";
+		try {
+			
+			PreparedStatement preparedStatement = connect
+					.prepareStatement(DatabaseUtil.EDIT_NAME_COLLECTION);
+			preparedStatement.setString(1, newCollectionName);
+			preparedStatement.setString(2, email);
+			preparedStatement.setString(3, oldCollectionName);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+			result = "Update Name Collection Success";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

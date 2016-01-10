@@ -145,4 +145,53 @@ public class HomeController {
 		result = handleData.updateCollectionName(email, collectionName);
 		return result;
 	}
+
+	@GET
+	@Path("/getCollectionName")
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public String showCollectionNameByType(@QueryParam("email") String email
+			,@QueryParam("type") String type,
+			@QueryParam("mealID") String mealID) {
+		String result = "";
+		result = handleData.getCollectinNameByType(email, type, mealID);
+		return result;
+	}
+
+	@GET
+	@Path("/getMealListFromCollectionName")
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public String getMealListFromCollectionName(@QueryParam("email") String email,
+			@QueryParam("collectionName") String collectionName) {
+		String result = "";
+		result = handleData.getMealListFromCollectionName(email, collectionName);
+		return result;
+	}
+	
+	
+	@POST
+	@Path("/deleteCollection")
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public String deleteCollection(String json) {
+		String result = "";
+		Map<String, String> inputs = (Map<String, String>) JsonUtil
+				.convertJsonToObject(json, Map.class);
+		String email = inputs.get("email");
+		String collectionName = inputs.get("collectionName");
+		result = handleData.deleteCollectionNameFromCollection(email, collectionName);
+		return result;
+	}
+	
+	@POST
+	@Path("/updateNameOfCollectionName")
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public String updateNameOfCollectionName(String json) {
+		String result = "";
+		Map<String, String> inputs = (Map<String, String>) JsonUtil
+				.convertJsonToObject(json, Map.class);
+		String email = inputs.get("email");
+		String oldCollectionName = inputs.get("oldCollectionName");
+		String newCollectionName = inputs.get("newCollectionName");
+		result = handleData.updateNameOfCollectionName(email, oldCollectionName, newCollectionName);
+		return result;
+	}
 }

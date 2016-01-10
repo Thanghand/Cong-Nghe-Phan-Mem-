@@ -157,7 +157,7 @@ namespace SmartChef_Admin
                 String url = row.Cells[4].Value.ToString();
                 if (url.Contains("http://"))
                 {
-                    if (ImageUtil.FromUrl(url) != null)
+                    //    if (ImageUtil.FromUrl(url) != null)
                     {
                         this.pbMealPicture.Image = Image.FromStream(new MemoryStream(ImageUtil.FromUrl(url)));
                         this.pbMealPicture.SizeMode = PictureBoxSizeMode.StretchImage;

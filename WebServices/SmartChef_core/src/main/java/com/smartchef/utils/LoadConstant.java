@@ -25,7 +25,8 @@ public class LoadConstant {
 	public static String GAINWEIGHT = "gainweight";
 	public static String WEIGHTLIFTING = "weightlifting";
 	public static String ALLSEEN = "allSeen";
-
+	public static String TYPE_DIALOG = "Dialog";
+	public static String TYPE_ACTIVITY = "Activity";
 	public static TreeMap<String, Integer> SortByValue(Map<String, Integer> map) {
 		ValueComparator vc = new ValueComparator(map);
 		TreeMap<String, Integer> sortedMap = new TreeMap<String, Integer>(vc);

@@ -1,6 +1,7 @@
 package com.smartchef.mysql;
 
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Map;
 
 import com.smartchef.model.UserSmartChef;
@@ -220,4 +221,37 @@ public interface MysqlService {
 	 * @return
 	 */
 	public String updateCollectionNameOfCollection (String email, String collectionName);
+	
+	/**
+	 * This function use to show collectionName
+	 * @param email
+	 * @param type
+	 * @return
+	 */
+	public List<Map<String,Object>> showCollectionNameByType(String email, String type);
+	
+	/**
+	 * This function use to show Mealist into Collection Name
+	 * @param email
+	 * @param collectionName
+	 * @return
+	 */
+	public List<Map<String,Object>> showMealListOfCollectionName(String email, String collectionName);
+	
+	/**
+	 * 
+	 * @param collectionName
+	 * @param email
+	 * @return
+	 */
+	public String deleteCollectionNameFromCollection(String collectionName, String email);
+	
+	/**
+	 * 
+	 * @param collectionName
+	 * @param email
+	 * @return
+	 */
+	public String updateNameOfCollectionName(String oldCollectionName, String newCollectionName, String email);
 }
+	

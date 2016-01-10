@@ -18,25 +18,25 @@ public class DatabaseUtil {
 	public static String DRIVER = "com.mysql.jdbc.Driver";
 	public static String STORE_PRODUCER_FBUSER = " {call SP_INS_fbUSER (?,?,?,?,?,?,?) }";
 	public static String GET_ALL_MEAL = "select mealID, mealNameVN, mealPicture, numberOfLike from meal";
-	public static String GET_MEAL = "select mealID, mealNameVN, mealPicture, numberOfLike ,email ,profilePicture , fullName from meal join user where insertedByEmail = email";
+	public static String GET_MEAL = "select mealID, mealNameVN, mealPicture, numberOfLike from meal";
 	public static String GET_DETAIL_MEAL = "select * from meal where mealID =  ?";
 	public static String STORE_UPDATE_FBUSER = "{call SP_Update_fbUSER (?,?,?)}";
-	public static String SEARCH_MEAL_NAME = "select mealID, mealNameVN, mealPicture, numberOfLike ,email ,profilePicture,"
-			+ "fullName from meal join user where insertedByEmail = email and mealNameVN like ?";
+	public static String SEARCH_MEAL_NAME = "select mealID, mealNameVN, mealPicture, numberOfLike"
+			+ " from meal where mealNameVN like ?";
 	public static String SEARCH_USER_NAME = "select * from user where fullName like ? ";
 	public static String GET_COUNT_FAVOTITE_HISTORY = "{call SP_GET_INFORMATION_ANOTHER_USER (?,?,?)}";
 	public static String ACTION_FOLLOW = "{call SP_ACTION_FOLLOW (?,?,?,?)}";
 	public static String GET_MEAL_BASE_ON_TYPE_MEAL = "select mealID, mealNameVN, mealPicture, numberOfLike ,email ,profilePicture , fullName "
-			+ "from meal join user where insertedByEmail = email and mealTypeID = "
+			+ "from meal join user where mealTypeID = "
 			+ "(select mealTypeID from MEAL_TYPE where mealTypeName = ";
 	public static String GET_MEAL_BASE_ON_DIET_MEAL = "select mealID, mealNameVN, mealPicture, numberOfLike ,email ,profilePicture , fullName "
-			+ "from meal join user where insertedByEmail = email and meal.dietID ="
+			+ "from meal join user where meal.dietID ="
 			+ "(select dietID from DIET where dietName =  ";
 	public static String ACTION_LIKES = "{call SP_LIKE_MEAL (?,?,?,?)}";
 	public static String SP_STATUS_LIKES_MEAL = "{call SP_CHECK_STATUS_MEAL_LIKE(?,?,?)}";
-	public static String SHOW_FAVORITE_MEAL = " select user.fullName, meal.insertedByEmail ,meal.mealID , meal.mealNameVN,meal.mealPicture"
+	public static String SHOW_FAVORITE_MEAL = " select user.fullName ,meal.mealID , meal.mealNameVN,meal.mealPicture"
 			+ ",meal.numberOfLike, user.profilePicture  from favorite , user , meal "
-			+ " where  user.email = meal.insertedByEmail and meal.mealID = favorite.mealID "
+			+ " where meal.mealID = favorite.mealID "
 			+ "and  favorite.email = ?";
 	public static String SHOW_FOLLOWER = " select user.email, user.fullName ,user.profilePicture from follow , user "
 			+ "where  follow.email = user.email and follow.followingEmail = ?";
@@ -58,13 +58,15 @@ public class DatabaseUtil {
 	public static String COUNT_MEAL_HAS_RATED = "select count(*) from meal where averageRating != 0 ";
 	// Collection
 	public static String INSERT_NEW_COLLECTION = "insert into collection (email, collectionName, mealList) values (?,?,?)";
-	public static String UPDATE_NEW_MEAL_INTO_COLEECTION = "update collection set mealList = ? "
+	public static String UPDATE_NEW_MEAL_INTO_COLEECTION = "update collection set mealList = concat(collection.mealList, ?)   "
 			+ "where email = ? and collectionName =?";
 	public static String UPDATE_COLLECTION_NAME = "update collection set collectionName = ? where email = ?";
 
-	public static String SHOW_MEALLIST_OF_COLLECTION = "select collectionName from meal where email = ?";
-	public static String SHOW_DETAIL_MEAL_OF_COLLECTION_NAME = "select collectionName, mealList from collection where email = ? and collectionName = ?";
-
+	public static String SHOW_MEALLIST_OF_COLLECTION = "select collectionName, mealList from collection where email = ?";
+	public static String SHOW_LIST_MEAL_FROM_COLLECTION_NAME = "select mealList from collection where email = ? and collectionName = ? ";
+	public static String DELETE_COLLECTION = "delete from collection where email = ? and collectionName = ?";
+	public static String EDIT_NAME_COLLECTION = "update collection set collectionName = ? where email = ? and collectionName = ?";
+	public static String DELETE_MEAL_INTO_COLLECTION = "update collection set mealList = ? where email = ? and collectionName = ?";
 	public static String getMealBaseOnTypeMeal(String query, String typeMeal) {
 		return query + "'" + typeMeal + "'" + ");";
 	}

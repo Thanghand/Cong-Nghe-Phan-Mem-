@@ -97,12 +97,10 @@ namespace SmartChef_Admin.Database
             try
             {
                 MySqlCommand cmd = mySqlConnection.CreateCommand();
-                cmd.CommandText = "update meal set nationID=@nationID,mealTypeID=@mealTypeID,festivalID=@fesID,"
+                cmd.CommandText = "update meal set mealTypeID=@mealTypeID,"
                                   + "mealNameVN=@mealName,mealPicture=@mealPic,descriptionVN=@description,tutorialVN=@tutorial,dietID=@dietID"
                                     + " where mealID=" + id;
-                cmd.Parameters.AddWithValue("@nationID", meal.NationID);
                 cmd.Parameters.AddWithValue("@mealTypeID", meal.MealTypeID);
-                cmd.Parameters.AddWithValue("@fesID", meal.FesID);
                 cmd.Parameters.AddWithValue("@mealName", meal.MealName);
                 cmd.Parameters.AddWithValue("@mealPic", meal.MealPic);
                 cmd.Parameters.AddWithValue("@description", meal.Description);
