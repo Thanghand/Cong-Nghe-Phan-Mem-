@@ -107,7 +107,7 @@ public class OptionUserAdapter extends BaseAdapter {
                     Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
                     bitmap = ImageUtil.roundCornerImage(bitmap, 10);
                     imageView.setImageBitmap(bitmap);
-                } else if (tittle.equals("My Recipes")) {
+                } else if (tittle.equals("My Collections")) {
                     Drawable drawable = context.getResources().getDrawable(R.drawable.myrecipes);
                     Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
                     bitmap = ImageUtil.roundCornerImage(bitmap, 10);

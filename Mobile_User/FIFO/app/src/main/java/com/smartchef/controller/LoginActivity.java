@@ -51,7 +51,6 @@ public class LoginActivity extends BaseFragmentActivity {
     private Animation fadeOut;
     private TextView description;
     private Button buttonDangNhapFaceBook;
-    private Button buttonDangNhapSmartChef;
     private CallbackManager callbackManager;
     private ProfileTracker profileTracker;
     private LoginButton loginButton;
@@ -185,10 +184,11 @@ public class LoginActivity extends BaseFragmentActivity {
                 GraphRequestAsyncTask request = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject user, GraphResponse graphResponse) {
-                        Log.d("Login", "Request Email: " + user);
+
                         String email = user.optString("email");
                         userSmartChef.setEmail(email);
                         sessionManager.updateEmailSeession(email);
+                        Log.d("Login", "Request Email: " + userSmartChef);
                         postUserToWebService(userSmartChef);
 
                     }
@@ -240,13 +240,6 @@ public class LoginActivity extends BaseFragmentActivity {
                 loginButton.performClick();
 
 
-            }
-        });
-        buttonDangNhapSmartChef = (Button) findViewById(R.id.btnLoginSmartChef);
-        buttonDangNhapSmartChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logoutFacebook();
             }
         });
     }

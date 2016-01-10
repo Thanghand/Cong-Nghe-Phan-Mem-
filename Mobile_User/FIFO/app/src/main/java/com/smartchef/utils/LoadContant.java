@@ -20,10 +20,11 @@ import java.security.NoSuchAlgorithmException;
  * Created by Administrator on 18-Apr-15.
  */
 public class LoadContant {
-    public static String[] DESCRIPTIONS = {"Học nấu ăn với SmartChef", "Bạn sẽ học được nhiều món ăn mới",
-            "Tư vấn những món theo sở thích của bạn", "Tạo ra những món ăn mới theo phong cách của bạn"};
+    public static String[] DESCRIPTIONS = {"Học nấu ăn với FIFO", "Bạn sẽ học được nhiều món ăn mới",
+            "Tư vấn những món theo sở thích của bạn", " Sưu tầm những món ăn theo nhu cầu của bạn "};
     public static String SUCCESSFULL = "1";
     public static String ERROR = "0";
+    public static String COLLECTION_HAS_BEEN_EXITED = "Ten bo suu tap da co";
     public static String TITLE = "Tittle";
     public static String NUMBER = "Number";
     public static String OPITON_MEAL = "OptionMeal";
@@ -34,19 +35,16 @@ public class LoadContant {
     public static String DUCK = "duck";
     public static String IMAGE_RESOURCE = "ImageSource";
     public static String TITLE_FAVORITE = "Favorite";
-    public static String TTTLE_HISTORY = "History";
     public static String FLAG_MAIN_USER = "mainUser";
     public static String FLAG_ANOTHER_USER = "anotherUser";
-    public static String[] keysTypeAnimal = {"cow", "pig", "chicken", "duck", "fish"};
-    public static String[] keysDietMeal = {"diet", "vegetablefood", "gainweight", "weightlifting"};
-    public static String TITTLE_FAVORITE = "TittleFavorite";
-    public static String TITTLE_FOLLOW = "TittleFollow";
-    public static String TITTLE_FOLLOWING = "TittleFollowing";
     public static String BILBOSWASHCAPS = "fonts/Bilbo Swash Caps.ttf";
-    public static String BILBOREGULAR = "fonts/Bilbo-Regular.ttf";
     public static int KEY_SEARCH_BY_SELECT_OPTION = 1 ;
     public static int KEY_SEARCH_BY_KEY_WORD = 2;
     public static String TYPE_SEARCH = "TypeSearch";
+    public static String MEAL_HAS_BEEN_EXISTED_IN_COLLECTION_DIALOG = "Mon an nay ban da ghim roi";
+    public static String TYPE_SCREEN_ACTIVITY = "Activity";
+
+    public static String TYPE_MEAL_OPTION = "TypeMeal";
     public static void getHashKey(Context context, PackageManager packageManager) {
         try {
 
@@ -69,5 +67,10 @@ public class LoadContant {
     public static void setTypeFaceFExternalFont(String fontPath, TextView view, Activity activity) {
         Typeface tf = Typeface.createFromAsset(activity.getAssets(), fontPath);
         view.setTypeface(tf);
+    }
+    public static String changeWhiteSpace(String input){
+        String result = input.trim();
+        result = result.replace(" ", "%20");
+        return  result;
     }
 }

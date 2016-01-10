@@ -48,6 +48,7 @@ public class NewFragment extends BaseFragment {
         cow.put(LoadContant.OPITON_MEAL, LoadContant.COW);
         cow.put(LoadContant.NUMBER, "");
         cow.put(LoadContant.IMAGE_RESOURCE, R.drawable.cow_food + "");
+        cow.put(LoadContant.TYPE_MEAL_OPTION, "typeMeal");
         listTittle.add(cow);
         // Chicken
         Map<String, String> chicken = new HashMap<>();
@@ -55,6 +56,7 @@ public class NewFragment extends BaseFragment {
         chicken.put(LoadContant.NUMBER, "");
         chicken.put(LoadContant.OPITON_MEAL, LoadContant.CHICKEN);
         chicken.put(LoadContant.IMAGE_RESOURCE, R.drawable.chicken_food + "");
+        chicken.put(LoadContant.TYPE_MEAL_OPTION, "typeMeal");
         listTittle.add(chicken);
         // Pig
         Map<String, String> pig = new HashMap<>();
@@ -62,6 +64,7 @@ public class NewFragment extends BaseFragment {
         pig.put(LoadContant.NUMBER, "");
         pig.put(LoadContant.OPITON_MEAL, LoadContant.PIG);
         pig.put(LoadContant.IMAGE_RESOURCE, R.drawable.pig_food + "");
+        pig.put(LoadContant.TYPE_MEAL_OPTION, "typeMeal");
         listTittle.add(pig);
         // Duck
         Map<String, String> duck = new HashMap<>();
@@ -69,6 +72,7 @@ public class NewFragment extends BaseFragment {
         duck.put(LoadContant.NUMBER, "");
         duck.put(LoadContant.OPITON_MEAL, LoadContant.DUCK);
         duck.put(LoadContant.IMAGE_RESOURCE, R.drawable.duck_food + "");
+        duck.put(LoadContant.TYPE_MEAL_OPTION, "typeMeal");
         listTittle.add(duck);
         // Fish
         Map<String, String> fish = new HashMap<>();
@@ -76,8 +80,32 @@ public class NewFragment extends BaseFragment {
         fish.put(LoadContant.NUMBER, "");
         fish.put(LoadContant.OPITON_MEAL, LoadContant.FISH);
         fish.put(LoadContant.IMAGE_RESOURCE, R.drawable.fish_food + "");
+        fish.put(LoadContant.TYPE_MEAL_OPTION, "typeMeal");
         listTittle.add(fish);
-
+        // Vegetable
+        Map<String, String> vegetable = new HashMap<>();
+        vegetable.put(LoadContant.TITLE, "Thuc Vat");
+        vegetable.put(LoadContant.NUMBER, "");
+        vegetable.put(LoadContant.OPITON_MEAL, "vegetablefood");
+        vegetable.put(LoadContant.IMAGE_RESOURCE, R.drawable.vegetablefood + "");
+        vegetable.put(LoadContant.TYPE_MEAL_OPTION, "dietMeal");
+        listTittle.add(vegetable);
+        // Tang Can
+        Map<String, String> tangcan = new HashMap<>();
+        tangcan.put(LoadContant.TITLE, "Tang Can");
+        tangcan.put(LoadContant.NUMBER, "");
+        tangcan.put(LoadContant.OPITON_MEAL, "gainweigth");
+        tangcan.put(LoadContant.IMAGE_RESOURCE, R.drawable.tangcan + "");
+        tangcan.put(LoadContant.TYPE_MEAL_OPTION, "dietMeal");
+        listTittle.add(tangcan);
+        // Giam Can
+        Map<String, String> giamcan = new HashMap<>();
+        giamcan.put(LoadContant.TITLE, "Giam Can");
+        giamcan.put(LoadContant.NUMBER, "");
+        giamcan.put(LoadContant.OPITON_MEAL, "diet");
+        giamcan.put(LoadContant.IMAGE_RESOURCE, R.drawable.diet + "");
+        giamcan.put(LoadContant.TYPE_MEAL_OPTION, "dietMeal");
+        listTittle.add(giamcan);
         optionUserAdapter = new OptionUserAdapter(getActivity().getApplicationContext(), listTittle);
         listView.setAdapter(optionUserAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,6 +114,7 @@ public class NewFragment extends BaseFragment {
                 Intent intent = new Intent(getActivity(), SearchingActivity.class);
                 intent.putExtra(LoadContant.TYPE_SEARCH, LoadContant.KEY_SEARCH_BY_SELECT_OPTION);
                 intent.putExtra(LoadContant.OPITON_MEAL, listTittle.get(i).get(LoadContant.OPITON_MEAL));
+                intent.putExtra(LoadContant.TYPE_MEAL_OPTION,listTittle.get(i).get(LoadContant.TYPE_MEAL_OPTION));
                 startActivity(intent);
             }
         });

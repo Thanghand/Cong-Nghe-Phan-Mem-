@@ -3,6 +3,7 @@ package com.smartchef.controller;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -10,7 +11,7 @@ import android.widget.ListView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.smartchef.apdaters.SearchAdapter;
+import com.smartchef.apdaters.DetailCollectionAdapter;
 import com.smartchef.app.AppController;
 import com.smartchef.utils.JsonUtil;
 import com.smartchef.utils.LoadContant;
@@ -25,17 +26,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Administrator on 21-Jun-15.
+ * Created by caothang on 1/4/16.
  */
-public class TitleOptionActivity extends BaseActionBarActivity {
-    ListView listView;
-    String email = "";
-    String tittle = "";
-    // Tittle Favorite
-    SearchAdapter searchAdapter;
-    List<Map<String, Object>> items;
-
-    // Tittle Follow
+public class DetailCollectionActivity extends BaseActionBarActivity {
+    private ListView listMealOfCollection ;
+    private List<Map<String, Object>> collectionMeals;
+    private DetailCollectionAdapter detailCollectionAdapter;
+    private  String email;
+    private String collectionName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,50 +44,37 @@ public class TitleOptionActivity extends BaseActionBarActivity {
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
-        actionBar.setCustomView(R.layout.actionbar_child_back);
+        actionBar.setCustomView(R.layout.actionbar_collection);
         Toolbar parent = (Toolbar) actionBar.getCustomView().getParent();
         parent.setContentInsetsAbsolute(0, 0);
-        ImageView backPress = (ImageView) actionBar.getCustomView().findViewById(R.id.backImage);
+        ImageView backPress = (ImageView) actionBar.getCustomView().findViewById(R.id.collectionBackImage);
         backPress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        setContentView(R.layout.activity_titleoption);
-        getIntentTitle();
-        defineView();
-        if ( tittle.equals("Favorite")){
-            loadMealDataFromWebservices(WebServiceUtil.SHOW_FAVORITE + email);
-        }
-
+        setContentView(R.layout.activity_detail_collection);
+        defineViewActivity();
+        getIntentData();
+        loadMealDataFromWebservices(WebServiceUtil.getDetailCollection(email, collectionName));
     }
-
-    private void getIntentTitle() {
+    private void getIntentData(){
         email = getIntent().getExtras().getString("Email");
-        tittle = getIntent().getExtras().getString("Tittle");
+        collectionName  = getIntent().getExtras().getString("CollectionName");
+        collectionName = LoadContant.changeWhiteSpace(collectionName);
     }
-
-    private void defineView() {
-        listView = (ListView) findViewById(R.id.listViewTitleOption);
-        if (tittle.equals(LoadContant.TITLE_FAVORITE)) {
-            items = new ArrayList<>();
-            searchAdapter = new SearchAdapter(this, items, 2);
-            listView.setAdapter(searchAdapter);
-        }
-
+    private void defineViewActivity(){
+        listMealOfCollection = (ListView)findViewById(R.id.listViewDetailCollection);
+        collectionMeals  = new ArrayList<>();
+        detailCollectionAdapter = new DetailCollectionAdapter(DetailCollectionActivity.this,collectionMeals);
+        listMealOfCollection.setAdapter(detailCollectionAdapter);
     }
-
-    private void loadMealDataFromWebservices(String url) {
-
+    public void loadMealDataFromWebservices(String url) {
         JsonArrayRequest mealsRequest = new JsonArrayRequest(url,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        if (items != null) {
-                            items.clear();
-                            searchAdapter.notifyDataSetChanged();
-                        }
                         // Parsing json
                         for (int i = 0; i < response.length(); i++) {
                             try {
@@ -98,7 +83,8 @@ public class TitleOptionActivity extends BaseActionBarActivity {
                                 String jsonObject = obj.toString();
                                 Map<String, Object> item = (Map<String, Object>) JsonUtil.convertJsonToObject(jsonObject, Map.class);
                                 //  Meal meal = (Meal) JsonUtil.convertJsonToObject(jsonObject, Meal.class);
-                                items.add(item);
+                                Log.d("DeatailCollection", "Item:" + item);
+                                collectionMeals.add(item);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -106,7 +92,7 @@ public class TitleOptionActivity extends BaseActionBarActivity {
                         }
                         // notifying list adapter about data changes
                         // so that it renders the list view with updated data
-                        searchAdapter.notifyDataSetChanged();
+                        detailCollectionAdapter.notifyDataSetChanged();
 
                     }
                 }, new Response.ErrorListener() {

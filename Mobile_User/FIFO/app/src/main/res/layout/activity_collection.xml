@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#333333">
+    <Button
+        android:id="@+id/activityButtonCreateTable"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_login"
+        android:text="Tạo bảng mới"
+        android:textColor="@android:color/white" />
+    <LinearLayout
+        android:id="@+id/activityLayoutCreateTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/activityEditTextNhom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="3"
+            android:textColor="@android:color/white"
+            android:hint="Collection Name" />
+
+        <Button
+            android:id="@+id/activityButtonOk"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_login"
+            android:text="OK"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/activityButtonX"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_login"
+            android:layout_margin="5dp"
+            android:text="X"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/activityFeedBackStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"
+        android:layout_margin="10dp"
+        android:text="Status"/>
+    <ListView
+        android:id="@+id/listViewCollection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:dividerHeight="5dip"
+        android:horizontalSpacing="5dp">
+
+    </ListView>
+</LinearLayout>
